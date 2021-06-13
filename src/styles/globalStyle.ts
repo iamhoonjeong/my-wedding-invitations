@@ -8,12 +8,17 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  h1 {
-    font-size: 2.6rem;
+  body {
+    background-color: #02343F;
+    color: white;
   }
 
-  span {
-    font-size: 1.2rem
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
   }
 `;
 

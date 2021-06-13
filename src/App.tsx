@@ -4,19 +4,15 @@ import styled from 'styled-components';
 import GlobalStyle from './styles/globalStyle';
 import './styles/App.scss';
 
+import Title from './components/Title';
+import Content from './containers/Content';
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   font-family: 'Montserrat';
   font-weight: normal;
-`;
-
-const Title = styled.h1`
-  font-weight: bold;
-`;
-
-const Desc = styled.span`
-  font-weight: normal;
+  padding: 1rem;
 `;
 
 function App() {
@@ -24,8 +20,10 @@ function App() {
     <>
       <GlobalStyle />
       <Wrap>
-        <Title>Hi There?</Title>
-        <Desc>description</Desc>
+        <Title text="Wedding" />
+        <Content text="Day" link="https://m.naver.com/" />
+        <Content text="Place" />
+        <Content text="Please" />
       </Wrap>
     </>
   );
