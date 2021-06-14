@@ -22,7 +22,7 @@ function App() {
       <Wrap>
         <Title text="Wedding" />
         <Content text="Day" link="https://m.naver.com/" />
-        <Content text="Place" />
+        <Content text="Photo" photo />
         <Content text="Please" />
       </Wrap>
     </>
