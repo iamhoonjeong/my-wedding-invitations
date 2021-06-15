@@ -1,4 +1,4 @@
-import React, { useState, useRef, MouseEvent } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import SubTitle from '../components/SubTitle';
@@ -12,7 +12,7 @@ interface ContentProps {
 }
 
 const Container = styled.div`
-  height: 500px;
+  height: 1200px;
 `;
 
 function Content({ text, link, photo }: ContentProps) {
@@ -20,15 +20,12 @@ function Content({ text, link, photo }: ContentProps) {
     left: false,
     right: false,
   });
-
   const changePhotoRef = useRef(changePhoto);
-
   const onChangePhoto = (e: string) => {
     setChangePhoto({
       ...changePhoto,
       [e]: !changePhoto[e],
     });
-
     setTimeout(() => {
       setChangePhoto(changePhotoRef.current);
     }, 1600);
