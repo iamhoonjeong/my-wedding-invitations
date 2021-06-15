@@ -11,6 +11,15 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #02343F;
     color: white;
+
+    // scroll
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   h1 {
