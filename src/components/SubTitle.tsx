@@ -8,15 +8,24 @@ interface SubTitleProps {
 }
 
 const Text = styled.h2`
+  display: block;
+  width: 100%;
   font-weight: bold;
   opacity: 0;
-  transition: 0.5s;
-  transition-delay: 0.3s;
-  transform: translateX(20px);
 
   &.fadeIn {
     opacity: 1;
-    transform: translateX(0);
+    animation: fadeIn 1s;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 `;
 

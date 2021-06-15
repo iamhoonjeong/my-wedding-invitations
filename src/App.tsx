@@ -13,6 +13,12 @@ const Wrap = styled.div`
   font-family: 'Montserrat';
   font-weight: normal;
   padding: 1rem;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 `;
 
 function App() {
@@ -21,7 +27,7 @@ function App() {
       <GlobalStyle />
       <Wrap>
         <Title text="Wedding" />
-        <Content text="Day" link="https://m.naver.com/" />
+        <Content text="Place" link="http://naver.me/5zJozzqz" />
         <Content text="Photo" photo />
         <Content text="Please" />
       </Wrap>

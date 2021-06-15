@@ -28,7 +28,7 @@ function Content({ text, link, photo }: ContentProps) {
     });
     setTimeout(() => {
       setChangePhoto(changePhotoRef.current);
-    }, 1600);
+    }, 1000);
   };
 
   return (

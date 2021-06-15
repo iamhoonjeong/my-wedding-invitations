@@ -1,6 +1,7 @@
 import React, { MouseEvent } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
+import { useState } from 'react';
 
 interface PhotoBoxProps {
   changePhoto: {
@@ -36,24 +37,19 @@ const TurnButton = styled.button`
   height: 100%;
   width: 100%;
   background-color: white;
-  transition: 300ms ease-out;
+  transform-origin: center center;
 
   &.animate {
-    animation-name: animate;
-    animation-duration: 1.5s;
+    animation-name: animation;
+    animation-duration: 1s;
   }
-
-  @keyframes animate {
-    50% {
-      min-width: 300vw;
-      min-height: 300vh;
-      width: 300vw;
-      height: 300vh;
+  @keyframes animation {
+    70% {
+      transform: scale(100);
     }
-
     100% {
-      min-height: 100%;
-      min-width: 100%;
+      width: 100%;
+      height: 100%;
     }
   }
 `;
@@ -67,10 +63,15 @@ const PhotoWrap = styled.div`
 
 function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
   const onClick = (e: MouseEvent<HTMLButtonElement>) => {
-    let value = e.currentTarget.value;
-    onChangePhoto(value);
-    setTimeout(() => {}, 1000);
+    onChangePhoto(e.currentTarget.value);
+
+    setBlockButton((prev) => !prev);
+    setTimeout(() => {
+      setBlockButton((prev) => !prev);
+    }, 1000);
   };
+
+  const [blockButton, setBlockButton] = useState(false);
 
   return (
     <Container>
@@ -79,6 +80,7 @@ function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
           value="left"
           className={cn({ animate: changePhoto.left })}
           onClick={onClick}
+          disabled={blockButton}
         ></TurnButton>
       </ButtonWrap>
       <PhotoWrap></PhotoWrap>
@@ -87,6 +89,7 @@ function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
           value="right"
           className={cn({ animate: changePhoto.right })}
           onClick={onClick}
+          disabled={blockButton}
         ></TurnButton>
       </ButtonWrap>
     </Container>
