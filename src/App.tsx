@@ -13,12 +13,6 @@ const Wrap = styled.div`
   font-family: 'Montserrat';
   font-weight: normal;
   padding: 1rem;
-
-  overflow-x: hidden;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    width: 0;
-  }
 `;
 
 function App() {
