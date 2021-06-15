@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
+
+interface PhotoBoxProps {
+  changePhoto: {
+    left: boolean;
+    right: boolean;
+  };
+  onChangePhoto: (e: string) => void;
+}
 
 const Container = styled.div`
   align-items: center;
@@ -28,12 +36,25 @@ const TurnButton = styled.button`
   height: 100%;
   width: 100%;
   background-color: white;
-  transition: 1s;
+  transition: 300ms ease-out;
 
   &.animate {
-    min-width: 1000vw;
-    min-height: 1000vh;
-    transition: 1s;
+    animation-name: animate;
+    animation-duration: 1.5s;
+  }
+
+  @keyframes animate {
+    50% {
+      min-width: 300vw;
+      min-height: 300vh;
+      width: 300vw;
+      height: 300vh;
+    }
+
+    100% {
+      min-height: 100%;
+      min-width: 100%;
+    }
   }
 `;
 
@@ -44,24 +65,27 @@ const PhotoWrap = styled.div`
   margin: 0 0.8rem;
 `;
 
-function PhotoBox() {
-  const [animate, setAnimate] = useState(false);
-
-  const onClick = () => {
-    setAnimate((prev) => !prev);
+function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
+  const onClick = (e: MouseEvent<HTMLButtonElement>) => {
+    let value = e.currentTarget.value;
+    onChangePhoto(value);
+    setTimeout(() => {}, 1000);
   };
+
   return (
     <Container>
       <ButtonWrap>
         <TurnButton
-          className={cn({ animate: animate })}
+          value="left"
+          className={cn({ animate: changePhoto.left })}
           onClick={onClick}
         ></TurnButton>
       </ButtonWrap>
       <PhotoWrap></PhotoWrap>
       <ButtonWrap>
         <TurnButton
-          className={cn({ animate: animate })}
+          value="right"
+          className={cn({ animate: changePhoto.right })}
           onClick={onClick}
         ></TurnButton>
       </ButtonWrap>
