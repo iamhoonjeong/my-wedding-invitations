@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
+
 interface LinkButtonProps {
   link?: string;
 }
@@ -15,11 +17,15 @@ const Button = styled.a`
   justify-content: center;
   text-decoration: none;
   width: 120px;
+  position: relative;
+  opacity: 0;
 `;
 
 function LinkButton({ link }: LinkButtonProps) {
+  const animatedItem: any = useScrollFadeIn();
+
   return (
-    <Button href={link} target="_blank">
+    <Button href={link} target="_blank" {...animatedItem}>
       ok
     </Button>
   );

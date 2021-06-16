@@ -8,25 +8,11 @@ interface SubTitleProps {
 }
 
 const Text = styled.h2`
-  display: block;
+  display: inline;
   width: 100%;
   font-weight: bold;
   opacity: 0;
-
-  &.fadeIn {
-    opacity: 1;
-    animation: fadeIn 1s;
-  }
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateX(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+  position: relative;
 `;
 
 function SubTitle({ text }: SubTitleProps) {

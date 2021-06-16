@@ -1,7 +1,8 @@
-import React, { MouseEvent } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-import { useState } from 'react';
+
+import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 
 interface PhotoBoxProps {
   changePhoto: {
@@ -16,6 +17,8 @@ const Container = styled.div`
   display: flex;
   height: 400px;
   justify-content: space-between;
+  opacity: 0;
+  position: relative;
 `;
 
 const ButtonWrap = styled.div`
@@ -70,11 +73,12 @@ function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
       setBlockButton((prev) => !prev);
     }, 1000);
   };
-
   const [blockButton, setBlockButton] = useState(false);
 
+  const animatedItem: any = useScrollFadeIn();
+
   return (
-    <Container>
+    <Container {...animatedItem}>
       <ButtonWrap>
         <TurnButton
           value="left"

@@ -6,20 +6,39 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    font-family: 'Montserrat' !important;
+    font-weight: normal;
+
+    &.fadeIn {
+      opacity: 1;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        top: 20px;
+      }
+      to {
+        opacity: 1;
+        top: 0;
+      }
+    }
   }
 
+  html {
+    height: 100%;
+  }
+  
   body {
     background-color: #02343F;
     color: white;
+    width: 100%;
+    height: 100%;
+  }
 
-    // scroll
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  #root {
+    width: 100%;
+    height: 100%;
   }
 
   h1 {
