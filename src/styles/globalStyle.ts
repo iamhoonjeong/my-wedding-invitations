@@ -10,8 +10,8 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
 
     &.fadeIn {
-      opacity: 1;
       animation: fadeIn 1s;
+      animation-fill-mode: forwards;
     }
     @keyframes fadeIn {
       from {
