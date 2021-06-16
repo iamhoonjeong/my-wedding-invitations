@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 import photo from '../static/image/splash.png';
-import LinkButton from '../components/LinkButton';
 
 interface SplashProps {
   splash: boolean;
