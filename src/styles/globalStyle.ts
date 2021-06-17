@@ -8,7 +8,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Montserrat' !important;
     font-weight: normal;
-
     &.fadeIn {
       animation: fadeIn 1s;
       animation-fill-mode: forwards;
@@ -32,13 +31,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: #02343F;
     color: white;
-    width: 100%;
     height: 100%;
-  }
-
-  #root {
     width: 100%;
-    height: 100%;
   }
 
   h1 {
@@ -47,6 +41,11 @@ const GlobalStyle = createGlobalStyle`
 
   h2 {
     font-size: 2rem;
+  }
+
+  #root {
+    height: 100%;
+    width: 100%;
   }
 `;
 

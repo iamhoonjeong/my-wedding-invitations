@@ -6,13 +6,14 @@ import LinkButton from '../components/LinkButton';
 import PhotoBox from '../components/PhotoBox';
 
 interface ContentProps {
-  text: string;
   link?: string;
   photo?: boolean;
+  text: string;
 }
 
 const Container = styled.div`
-  height: 1200px;
+  // temp value
+  height: 600px;
 `;
 
 function Content({ text, link, photo }: ContentProps) {
@@ -20,7 +21,9 @@ function Content({ text, link, photo }: ContentProps) {
     left: false,
     right: false,
   });
+
   const changePhotoRef = useRef(changePhoto);
+
   const onChangePhoto = (e: string) => {
     setChangePhoto({
       ...changePhoto,

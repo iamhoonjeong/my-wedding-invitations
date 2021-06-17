@@ -15,10 +15,10 @@ const Button = styled.a`
   display: flex;
   height: 40px;
   justify-content: center;
+  opacity: 0;
+  position: relative;
   text-decoration: none;
   width: 120px;
-  position: relative;
-  opacity: 0;
 `;
 
 function LinkButton({ link }: LinkButtonProps) {

@@ -9,10 +9,10 @@ interface SubTitleProps {
 
 const Text = styled.h2`
   display: inline;
-  width: 100%;
   font-weight: bold;
   opacity: 0;
   position: relative;
+  width: 100%;
 `;
 
 function SubTitle({ text }: SubTitleProps) {

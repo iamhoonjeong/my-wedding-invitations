@@ -22,37 +22,36 @@ const Container = styled.div`
 `;
 
 const ButtonWrap = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+  justify-content: center;
   min-height: 2rem;
   min-width: 2rem;
-  height: 2rem;
   width: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 `;
 
 const TurnButton = styled.button`
+  background-color: white;
   border: 0;
   border-radius: 50%;
+  height: 100%;
   min-height: 100%;
   min-width: 100%;
-  height: 100%;
-  width: 100%;
-  background-color: white;
   transform-origin: center center;
-
+  width: 100%;
   &.animate {
-    animation-name: animation;
     animation-duration: 1s;
+    animation-name: animation;
   }
   @keyframes animation {
     70% {
       transform: scale(100);
     }
     100% {
-      width: 100%;
       height: 100%;
+      width: 100%;
     }
   }
 `;
@@ -60,20 +59,20 @@ const TurnButton = styled.button`
 const PhotoWrap = styled.div`
   background-color: white;
   height: 400px;
-  width: 400px;
   margin: 0 0.8rem;
+  width: 400px;
 `;
 
 function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
+  const [blockButton, setBlockButton] = useState(false);
+
   const onClick = (e: MouseEvent<HTMLButtonElement>) => {
     onChangePhoto(e.currentTarget.value);
-
     setBlockButton((prev) => !prev);
     setTimeout(() => {
       setBlockButton((prev) => !prev);
     }, 1000);
   };
-  const [blockButton, setBlockButton] = useState(false);
 
   const animatedItem: any = useScrollFadeIn();
 

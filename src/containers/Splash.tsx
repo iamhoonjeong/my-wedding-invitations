@@ -1,45 +1,47 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
+
 import photo from '../static/image/splash.png';
 
 interface SplashProps {
-  splash: boolean;
   onChangeSplash: () => void;
+  splash: boolean;
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
   background-image: url(${photo});
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: 1s;
+  display: flex;
+  height: 100%;
+  justify-content: center;
   overflow: hidden;
-
+  transition: 1s;
+  width: 100%;
   &.fadeOut {
     opacity: 0;
   }
 `;
 
 const Button = styled.button`
-  width: 200px;
-  height: 38px;
   background-color: white;
-  font-weight: normal;
-  font-size: 1.6rem;
   border: 0;
   border-radius: 16px;
   box-shadow: 2px 2px 12px;
   color: #72694b;
+  font-size: 1.6rem;
+  font-weight: normal;
+  height: 38px;
+  width: 200px;
 `;
 
 function Splash({ onChangeSplash }: SplashProps) {
   const [transition, setTransition] = useState(false);
+  const [blockButton, setBlockButton] = useState(false);
+
   const onClick = () => {
     onChangeSplash();
     setTransition((prev) => !prev);
@@ -49,7 +51,6 @@ function Splash({ onChangeSplash }: SplashProps) {
     }, 1000);
   };
 
-  const [blockButton, setBlockButton] = useState(false);
   return (
     <Container className={cn({ fadeOut: transition })}>
       <Button onClick={onClick} disabled={blockButton}>

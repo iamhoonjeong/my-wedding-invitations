@@ -15,6 +15,7 @@ const Wrap = styled.div`
 
 function App() {
   const [splash, setSplash] = useState(true);
+
   const onChangeSplash = () => {
     setTimeout(() => {
       setSplash((prev) => !prev);
