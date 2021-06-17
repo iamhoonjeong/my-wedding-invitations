@@ -1,15 +1,10 @@
-import React, { useState, MouseEvent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import cn from 'classnames';
 
 import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 
 interface PhotoBoxProps {
-  changePhoto: {
-    left: boolean;
-    right: boolean;
-  };
-  onChangePhoto: (e: string) => void;
+  changePhoto?: (e: any) => void;
 }
 
 const Container = styled.div`
@@ -41,19 +36,6 @@ const TurnButton = styled.button`
   min-width: 100%;
   transform-origin: center center;
   width: 100%;
-  &.animate {
-    animation-duration: 1s;
-    animation-name: animation;
-  }
-  @keyframes animation {
-    70% {
-      transform: scale(100);
-    }
-    100% {
-      height: 100%;
-      width: 100%;
-    }
-  }
 `;
 
 const PhotoWrap = styled.div`
@@ -63,37 +45,17 @@ const PhotoWrap = styled.div`
   width: 400px;
 `;
 
-function PhotoBox({ changePhoto, onChangePhoto }: PhotoBoxProps) {
-  const [blockButton, setBlockButton] = useState(false);
-
-  const onClick = (e: MouseEvent<HTMLButtonElement>) => {
-    onChangePhoto(e.currentTarget.value);
-    setBlockButton((prev) => !prev);
-    setTimeout(() => {
-      setBlockButton((prev) => !prev);
-    }, 1000);
-  };
-
+function PhotoBox({ changePhoto }: PhotoBoxProps) {
   const animatedItem: any = useScrollFadeIn();
 
   return (
     <Container {...animatedItem}>
       <ButtonWrap>
-        <TurnButton
-          value="left"
-          className={cn({ animate: changePhoto.left })}
-          onClick={onClick}
-          disabled={blockButton}
-        ></TurnButton>
+        <TurnButton value="left" onClick={changePhoto}></TurnButton>
       </ButtonWrap>
       <PhotoWrap></PhotoWrap>
       <ButtonWrap>
-        <TurnButton
-          value="right"
-          className={cn({ animate: changePhoto.right })}
-          onClick={onClick}
-          disabled={blockButton}
-        ></TurnButton>
+        <TurnButton value="right" onClick={changePhoto}></TurnButton>
       </ButtonWrap>
     </Container>
   );

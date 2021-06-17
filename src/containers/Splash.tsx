@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 
@@ -19,44 +19,51 @@ const Container = styled.div`
   height: 100%;
   justify-content: center;
   overflow: hidden;
-  transition: 1s;
   width: 100%;
-  &.fadeOut {
-    opacity: 0;
-  }
 `;
 
-const Button = styled.button`
+const Title = styled.h2`
+  font-size: 3rem;
+  font-family: 'Salome' !important;
+`;
+
+const TransitionBox = styled.div`
   background-color: white;
-  border: 0;
-  border-radius: 16px;
-  box-shadow: 2px 2px 12px;
-  color: #72694b;
-  font-size: 1.6rem;
-  font-weight: normal;
-  height: 38px;
-  width: 200px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  &.transition {
+    animation: transition 1s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes transition {
+    from {
+      height: 0;
+    }
+    to {
+      height: 100%;
+    }
+  }
 `;
 
 function Splash({ onChangeSplash }: SplashProps) {
   const [transition, setTransition] = useState(false);
-  const [blockButton, setBlockButton] = useState(false);
 
   const onClick = () => {
     onChangeSplash();
     setTransition((prev) => !prev);
-    setBlockButton((prev) => !prev);
-    setTimeout(() => {
-      setBlockButton((prev) => !prev);
-    }, 1000);
   };
 
+  useEffect(() => {});
+
   return (
-    <Container className={cn({ fadeOut: transition })}>
-      <Button onClick={onClick} disabled={blockButton}>
-        Wedding
-      </Button>
-    </Container>
+    <>
+      <Container onClick={onClick}>
+        <Title>Wedding</Title>
+      </Container>
+      <TransitionBox className={cn({ transition })} />
+    </>
   );
 }
 

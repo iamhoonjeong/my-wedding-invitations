@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import SubTitle from '../components/SubTitle';
@@ -9,37 +9,18 @@ interface ContentProps {
   link?: string;
   photo?: boolean;
   text: string;
+  changePhoto?: (e: any) => void;
 }
 
 const Container = styled.div`
-  // temp value
   height: 600px;
 `;
 
-function Content({ text, link, photo }: ContentProps) {
-  const [changePhoto, setChangePhoto] = useState<any>({
-    left: false,
-    right: false,
-  });
-
-  const changePhotoRef = useRef(changePhoto);
-
-  const onChangePhoto = (e: string) => {
-    setChangePhoto({
-      ...changePhoto,
-      [e]: !changePhoto[e],
-    });
-    setTimeout(() => {
-      setChangePhoto(changePhotoRef.current);
-    }, 1000);
-  };
-
+function Content({ text, link, photo, changePhoto }: ContentProps) {
   return (
     <Container>
       <SubTitle text={text} />
-      {photo && (
-        <PhotoBox changePhoto={changePhoto} onChangePhoto={onChangePhoto} />
-      )}
+      {photo && <PhotoBox changePhoto={changePhoto} />}
       {link && <LinkButton link={link} />}
     </Container>
   );
