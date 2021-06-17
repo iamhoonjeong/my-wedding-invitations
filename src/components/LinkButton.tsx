@@ -19,7 +19,6 @@ const Button = styled.a`
   position: relative;
   text-decoration: none;
   width: 120px;
-  will-change: scroll-position;
 `;
 
 function LinkButton({ link }: LinkButtonProps) {

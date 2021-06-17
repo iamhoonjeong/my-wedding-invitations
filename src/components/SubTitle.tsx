@@ -13,7 +13,6 @@ const Text = styled.h2`
   opacity: 0;
   position: relative;
   width: 100%;
-  will-change: scroll-position;
 `;
 
 function SubTitle({ text }: SubTitleProps) {
