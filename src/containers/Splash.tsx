@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 
@@ -20,7 +20,11 @@ const Container = styled.div`
   height: 100%;
   justify-content: center;
   overflow: hidden;
+  cursor: pointer;
   width: 100%;
+  &.transition {
+    pointer-events: none;
+  }
 `;
 
 const Title = styled.h2`
@@ -29,7 +33,7 @@ const Title = styled.h2`
 `;
 
 const TransitionBox = styled.div`
-  background-color: white;
+  background-color: #72694b;
   bottom: 0;
   position: fixed;
   width: 100%;
@@ -37,6 +41,8 @@ const TransitionBox = styled.div`
   &.transition {
     animation: transition 1s;
     animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    touch-action: none;
   }
   @keyframes transition {
     from {
@@ -50,17 +56,14 @@ const TransitionBox = styled.div`
 
 function Splash({ onChangeSplash }: SplashProps) {
   const [transition, setTransition] = useState(false);
-
   const onClick = () => {
     onChangeSplash();
     setTransition((prev) => !prev);
   };
 
-  useEffect(() => {});
-
   return (
     <>
-      <Container onClick={onClick}>
+      <Container className={cn({ transition })} onClick={onClick}>
         <Title>Wedding</Title>
       </Container>
       <TransitionBox className={cn({ transition })} />

@@ -26,11 +26,21 @@ function App() {
   };
 
   const [photoNumber, setPhotoNumber] = useState(0);
-  const color = ['red', 'blue', 'pink'];
+  const color = [
+    '#72694b',
+    '#02343F',
+    '#07553B',
+    '#50586C',
+    '#815854',
+    '#DDA94B',
+  ];
   const changePhoto = (e: any) => {
     if (e.currentTarget.value === 'left' && photoNumber > 0)
       setPhotoNumber(photoNumber - 1);
-    else if (e.currentTarget.value === 'right' && photoNumber < 2)
+    else if (
+      e.currentTarget.value === 'right' &&
+      photoNumber < color.length - 1
+    )
       setPhotoNumber(photoNumber + 1);
   };
 
