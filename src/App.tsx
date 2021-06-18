@@ -13,6 +13,8 @@ const Wrap: any = styled.div`
   flex-direction: column;
   padding: 1rem;
   transition: 1s;
+  font-family: 'Montserrat';
+  font-weight: bold;
 `;
 
 function App() {

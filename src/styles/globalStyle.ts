@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
     font-family: 'Montserrat' !important;
-    font-weight: normal;
+    font-weight: bold;
     &.fadeIn {
       animation: fadeIn 1s;
       animation-fill-mode: forwards;
@@ -39,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2rem;    
   }
 
   #root {

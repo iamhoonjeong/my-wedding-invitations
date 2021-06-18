@@ -13,6 +13,7 @@ const Button = styled.a`
   border-radius: 8px;
   color: #02343f;
   display: flex;
+  font-weight: normal;
   height: 40px;
   justify-content: center;
   opacity: 0;

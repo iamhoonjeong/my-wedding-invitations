@@ -13,6 +13,7 @@ interface ContentProps {
 }
 
 const Container = styled.div`
+  font-family: 'Montserrat' !important;
   height: 600px;
 `;
 

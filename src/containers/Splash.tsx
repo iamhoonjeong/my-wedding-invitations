@@ -16,6 +16,7 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  font-family: 'Montserrat';
   height: 100%;
   justify-content: center;
   overflow: hidden;
