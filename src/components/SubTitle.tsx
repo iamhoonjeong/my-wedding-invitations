@@ -8,10 +8,15 @@ interface SubTitleProps {
 }
 
 const Text = styled.h2`
-  display: inline;
+  display: flex;
+  justify-content: center;
   font-weight: bold;
+  line-height: 2.2rem;
+  letter-spacing: -0.4px;
+  margin-bottom: 1.4rem;
   opacity: 0;
   position: relative;
+  text-align: center;
   width: 100%;
 `;
 

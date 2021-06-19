@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     }
     @keyframes fadeIn {
       from {
-        top: 20px;
+        top: 60px;
       }
       to {
         opacity: 1;
@@ -25,13 +25,17 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   body {
-    background-color: #02343F;
+    background-color: white;
     color: white;
     height: 100%;
     width: 100%;
+    max-width: 600px;
   }
 
   h1 {

@@ -10,10 +10,12 @@ interface PhotoBoxProps {
 const Container = styled.div`
   align-items: center;
   display: flex;
-  height: 400px;
+  max-height: 400px;
   justify-content: space-between;
   opacity: 0;
   position: relative;
+  flex: 1;
+  width: 100%;
 `;
 
 const ButtonWrap = styled.div`
@@ -42,7 +44,7 @@ const PhotoWrap = styled.div`
   background-color: white;
   height: 400px;
   margin: 0 0.8rem;
-  width: 400px;
+  width: 100%;
 `;
 
 function PhotoBox({ changePhoto }: PhotoBoxProps) {

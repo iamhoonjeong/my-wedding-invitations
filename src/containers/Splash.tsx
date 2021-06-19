@@ -35,13 +35,14 @@ const Title = styled.h2`
 const TransitionBox = styled.div`
   background-color: #72694b;
   bottom: 0;
+  left: 0;
   position: fixed;
   width: 100%;
   z-index: 100;
   &.transition {
-    animation: transition 1s;
+    animation: transition 0.8s;
     animation-fill-mode: forwards;
-    animation-timing-function: linear;
+    animation-timing-function: ease-in-out;
     touch-action: none;
   }
   @keyframes transition {

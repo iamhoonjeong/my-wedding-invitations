@@ -8,18 +8,19 @@ interface LinkButtonProps {
 }
 
 const Button = styled.a`
+  align-self: center;
   align-items: center;
   background-color: white;
   border-radius: 8px;
   color: #02343f;
   display: flex;
   font-weight: normal;
-  height: 40px;
+  height: 52px;
   justify-content: center;
   opacity: 0;
   position: relative;
   text-decoration: none;
-  width: 120px;
+  width: 50%;
 `;
 
 function LinkButton({ link }: LinkButtonProps) {

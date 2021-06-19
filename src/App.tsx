@@ -7,11 +7,13 @@ import './styles/App.scss';
 import Splash from './containers/Splash';
 import Content from './containers/Content';
 
+import { introduce } from './text/firstSection';
+
 const Wrap: any = styled.div`
   background-color: ${(props: any) => props.backgroundColor};
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 2.2rem 1rem;
   transition: 1s;
   font-family: 'Montserrat';
   font-weight: bold;
@@ -26,20 +28,12 @@ function App() {
   };
 
   const [photoNumber, setPhotoNumber] = useState(0);
-  const color = [
-    '#72694b',
-    '#02343F',
-    '#07553B',
-    '#50586C',
-    '#815854',
-    '#DDA94B',
-  ];
   const changePhoto = (e: any) => {
     if (e.currentTarget.value === 'left' && photoNumber > 0)
       setPhotoNumber(photoNumber - 1);
     else if (
       e.currentTarget.value === 'right' &&
-      photoNumber < color.length - 1
+      photoNumber < COLOR.length - 1
     )
       setPhotoNumber(photoNumber + 1);
   };
@@ -50,7 +44,8 @@ function App() {
       {splash ? (
         <Splash splash onChangeSplash={onChangeSplash} />
       ) : (
-        <Wrap backgroundColor={color[photoNumber]}>
+        <Wrap backgroundColor={COLOR[photoNumber]}>
+          <Content text="we are getting married!" introduce={introduce} />
           <Content text="Place" link="http://naver.me/5zJozzqz" />
           <Content text="Photo" photo changePhoto={changePhoto} />
           <Content text="Please" />
@@ -61,3 +56,12 @@ function App() {
 }
 
 export default App;
+
+const COLOR = [
+  '#72694b',
+  '#02343F',
+  '#07553B',
+  '#50586C',
+  '#815854',
+  '#DDA94B',
+];
