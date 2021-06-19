@@ -11,7 +11,8 @@ interface ContentProps {
   photo?: boolean;
   text: string;
   changePhoto?: (e: any) => void;
-  introduce?: string;
+  semiAndI?: string;
+  startIntroduce?: string;
 }
 
 const Container = styled.div`
@@ -22,13 +23,21 @@ const Container = styled.div`
   height: 600px;
 `;
 
-function Content({ text, link, photo, introduce, changePhoto }: ContentProps) {
+function Content({
+  text,
+  semiAndI,
+  startIntroduce,
+  link,
+  photo,
+  changePhoto,
+}: ContentProps) {
   return (
     <Container>
       <SubTitle text={text} />
+      {semiAndI && <SubText semiAndI={semiAndI} />}
+      {startIntroduce && <SubText startIntroduce={startIntroduce} />}
       {photo && <PhotoBox changePhoto={changePhoto} />}
       {link && <LinkButton link={link} />}
-      {introduce && <SubText introduce={introduce} />}
     </Container>
   );
 }

@@ -7,7 +7,7 @@ import './styles/App.scss';
 import Splash from './containers/Splash';
 import Content from './containers/Content';
 
-import { introduce } from './text/firstSection';
+import { semiAndI, startIntroduce } from './text/firstSection';
 
 const Wrap: any = styled.div`
   background-color: ${(props: any) => props.backgroundColor};
@@ -45,7 +45,11 @@ function App() {
         <Splash splash onChangeSplash={onChangeSplash} />
       ) : (
         <Wrap backgroundColor={COLOR[photoNumber]}>
-          <Content text="we are getting married!" introduce={introduce} />
+          <Content
+            text="We're getting married!"
+            semiAndI={semiAndI}
+            startIntroduce={startIntroduce}
+          />
           <Content text="Place" link="http://naver.me/5zJozzqz" />
           <Content text="Photo" photo changePhoto={changePhoto} />
           <Content text="Please" />
