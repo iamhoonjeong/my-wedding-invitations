@@ -7,8 +7,6 @@ import './styles/App.scss';
 import Splash from './containers/Splash';
 import Content from './containers/Content';
 
-import { semiAndI, startIntroduce } from './text/firstSection';
-
 const Wrap: any = styled.div`
   background-color: ${(props: any) => props.backgroundColor};
   display: flex;
@@ -45,14 +43,20 @@ function App() {
         <Splash splash onChangeSplash={onChangeSplash} />
       ) : (
         <Wrap backgroundColor={COLOR[photoNumber]}>
+          <Content text="we're getting married!" getting />
           <Content
-            text="We're getting married!"
-            semiAndI={semiAndI}
-            startIntroduce={startIntroduce}
+            text="place"
+            link="http://naver.me/5zJozzqz"
+            place
+            color={COLOR[photoNumber]}
           />
-          <Content text="Place" link="http://naver.me/5zJozzqz" />
-          <Content text="Photo" photo changePhoto={changePhoto} />
-          <Content text="Please" />
+          <Content
+            text="wedding photo"
+            photo
+            changePhoto={changePhoto}
+            photoNumber={photoNumber}
+          />
+          <Content text="please" please />
         </Wrap>
       )}
     </>
@@ -61,11 +65,4 @@ function App() {
 
 export default App;
 
-const COLOR = [
-  '#72694b',
-  '#02343F',
-  '#07553B',
-  '#50586C',
-  '#815854',
-  '#DDA94B',
-];
+const COLOR = ['#6b5c38', '#c39378', '#c39378', '#7c7153'];

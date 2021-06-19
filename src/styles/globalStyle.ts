@@ -46,6 +46,11 @@ const GlobalStyle = createGlobalStyle`
     font-size: 2rem;    
   }
 
+  button {
+    background-color: none;
+    color: none;
+  }
+
   #root {
     height: 100%;
     width: 100%;

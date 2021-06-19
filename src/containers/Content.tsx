@@ -10,9 +10,12 @@ interface ContentProps {
   link?: string;
   photo?: boolean;
   text: string;
+  color?: string;
   changePhoto?: (e: any) => void;
-  semiAndI?: string;
-  startIntroduce?: string;
+  getting?: boolean;
+  place?: boolean;
+  please?: boolean;
+  photoNumber?: number | undefined;
 }
 
 const Container = styled.div`
@@ -20,24 +23,30 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat' !important;
-  height: 600px;
+  margin-bottom: 12rem;
 `;
 
 function Content({
   text,
-  semiAndI,
-  startIntroduce,
+  color,
+  getting,
+  place,
+  please,
   link,
   photo,
   changePhoto,
+  photoNumber,
 }: ContentProps) {
   return (
     <Container>
       <SubTitle text={text} />
-      {semiAndI && <SubText semiAndI={semiAndI} />}
-      {startIntroduce && <SubText startIntroduce={startIntroduce} />}
-      {photo && <PhotoBox changePhoto={changePhoto} />}
-      {link && <LinkButton link={link} />}
+      {getting && <SubText getting />}
+      {place && <SubText place />}
+      {please && <SubText please />}
+      {photo && (
+        <PhotoBox changePhoto={changePhoto} photoNumber={photoNumber} />
+      )}
+      {link && <LinkButton link={link} color={color} />}
     </Container>
   );
 }

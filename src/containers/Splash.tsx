@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 
-import photo from '../static/image/splash.png';
+import photo from '../static/image/one.png';
 
 interface SplashProps {
   onChangeSplash: () => void;
@@ -28,21 +28,36 @@ const Container = styled.div`
   }
   & > * {
     margin-bottom: 0.36rem;
-    text-shadow: 0 0 1rem rgba(114, 105, 75, 0.4);
+    text-shadow: 0 0 1rem rgba(114, 105, 75, 0.2);
   }
 `;
 
 const Title = styled.h2`
   font-family: 'Salome' !important;
   font-size: 3rem;
+  position: relative;
+  transition: 1000ms;
+  &.transition {
+    opacity: 0;
+  }
 `;
 
 const Date = styled.h3`
   font-family: 'Salome' !important;
   font-size: 2rem;
+  position: relative;
+  transition: 660ms;
+  &.transition {
+    opacity: 0;
+  }
 `;
 
-const Time = styled(Date)``;
+const Time = styled(Date)`
+  transition: 300ms;
+  &.transition {
+    opacity: 0;
+  }
+`;
 
 const Mention = styled.div`
   align-items: center;
@@ -51,13 +66,14 @@ const Mention = styled.div`
   justify-content: center;
   height: 16px;
   margin-bottom: 0;
+  letter-spacing: -0.2px;
   position: absolute;
   top: calc(100% - 16px - 1.4rem);
   width: 240px;
 `;
 
 const TransitionBox = styled.div`
-  background-color: #72694b;
+  background-color: #6b5c38;
   bottom: 0;
   left: 0;
   position: fixed;
@@ -89,9 +105,9 @@ function Splash({ onChangeSplash }: SplashProps) {
   return (
     <>
       <Container className={cn({ transition })} onClick={onClick}>
-        <Title>Wedding</Title>
-        <Date>2021.10.9</Date>
-        <Time>12:00pm</Time>
+        <Title className={cn({ transition })}>Wedding</Title>
+        <Date className={cn({ transition })}>2021.10.9</Date>
+        <Time className={cn({ transition })}>12:00pm</Time>
         <Mention>화면을 터치하세요</Mention>
       </Container>
       <TransitionBox className={cn({ transition })} />

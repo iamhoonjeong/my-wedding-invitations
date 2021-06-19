@@ -13,7 +13,7 @@ const Text = styled.h2`
   font-weight: bold;
   line-height: 2.2rem;
   letter-spacing: -0.4px;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.6rem;
   opacity: 0;
   position: relative;
   text-align: center;

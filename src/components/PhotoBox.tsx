@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, MouseEvent } from 'react';
 import styled from 'styled-components';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
 import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 
+import one from '../static/image/one.png';
+import two from '../static/image/two.png';
+import three from '../static/image/three.png';
+import four from '../static/image/four.png';
+
 interface PhotoBoxProps {
   changePhoto?: (e: any) => void;
+  photoNumber?: number | undefined;
 }
 
 const Container = styled.div`
@@ -22,42 +29,63 @@ const ButtonWrap = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 2rem;
+  height: 400px;
   justify-content: center;
-  min-height: 2rem;
-  min-width: 2rem;
-  width: 2rem;
+  padding: 0;
 `;
 
 const TurnButton = styled.button`
-  background-color: white;
   border: 0;
-  border-radius: 50%;
   height: 100%;
   min-height: 100%;
   min-width: 100%;
-  transform-origin: center center;
+  padding: 0;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0);
 `;
 
-const PhotoWrap = styled.div`
-  background-color: white;
+const PhotoWrap = styled.div<any>`
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   height: 400px;
   margin: 0 0.8rem;
   width: 100%;
+  background-image: url(${one});
+  background-image: ${(props) => `url(${props.photo})`};
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 500ms;
 `;
 
 function PhotoBox({ changePhoto }: PhotoBoxProps) {
+  const [photoNumber, setPhotoNumber] = useState(0);
+  const photos = [one, two, three, four];
+  const onClick = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget.className.includes('left') && photoNumber > 0) {
+      setPhotoNumber((prev) => prev - 1);
+    } else if (
+      e.currentTarget.className.includes('right') &&
+      photoNumber < photos.length - 1
+    ) {
+      setPhotoNumber((prev) => prev + 1);
+    }
+  };
+
   const animatedItem: any = useScrollFadeIn();
 
   return (
     <Container {...animatedItem}>
-      <ButtonWrap>
-        <TurnButton value="left" onClick={changePhoto}></TurnButton>
+      <ButtonWrap className="left" onClick={onClick}>
+        <TurnButton value="left" onClick={changePhoto}>
+          <BsChevronCompactLeft size={40} color={'white'} />
+        </TurnButton>
       </ButtonWrap>
-      <PhotoWrap></PhotoWrap>
-      <ButtonWrap>
-        <TurnButton value="right" onClick={changePhoto}></TurnButton>
+      <PhotoWrap photo={photos[photoNumber]}></PhotoWrap>
+      <ButtonWrap className="right" onClick={onClick}>
+        <TurnButton value="right" onClick={changePhoto}>
+          <BsChevronCompactRight size={40} color={'white'} />
+        </TurnButton>
       </ButtonWrap>
     </Container>
   );
