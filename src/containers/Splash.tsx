@@ -62,13 +62,14 @@ const Time = styled(Date)`
 const Mention = styled.div`
   align-items: center;
   display: flex;
+  font-size: 0.9rem;
   font-weight: 100;
   justify-content: center;
   height: 16px;
   margin-bottom: 0;
   letter-spacing: -0.2px;
   position: absolute;
-  top: calc(100% - 16px - 1.4rem);
+  top: calc(100% - 16px - 1.6rem);
   width: 240px;
 `;
 

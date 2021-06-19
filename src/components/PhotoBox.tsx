@@ -8,6 +8,7 @@ import one from '../static/image/one.png';
 import two from '../static/image/two.png';
 import three from '../static/image/three.png';
 import four from '../static/image/four.png';
+import { useEffect } from 'react';
 
 interface PhotoBoxProps {
   changePhoto?: (e: any) => void;
@@ -69,8 +70,17 @@ function PhotoBox({ changePhoto }: PhotoBoxProps) {
       photoNumber < photos.length - 1
     ) {
       setPhotoNumber((prev) => prev + 1);
+      const img = new Image();
+      img.src = photos[photoNumber + 1];
     }
   };
+
+  useEffect(() => {
+    if (photoNumber < photos.length - 1) {
+      const img = new Image();
+      img.src = photos[photoNumber + 1];
+    }
+  }, [photoNumber]);
 
   const animatedItem: any = useScrollFadeIn();
 
