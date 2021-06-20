@@ -65,4 +65,12 @@ function App() {
 
 export default App;
 
-const COLOR = ['#6b5c38', '#c39378', '#c39378', '#7c7153'];
+const COLOR = [
+  '#6b5c38',
+  '#c39378',
+  '#c39378',
+  '#7c7153',
+  '#70694d',
+  '#9b8b72',
+  '#7a7153',
+];

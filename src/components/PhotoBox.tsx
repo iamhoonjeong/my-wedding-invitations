@@ -8,6 +8,9 @@ import one from '../static/image/one.png';
 import two from '../static/image/two.png';
 import three from '../static/image/three.png';
 import four from '../static/image/four.png';
+import five from '../static/image/five.png';
+import six from '../static/image/six.png';
+import seven from '../static/image/seven.png';
 
 interface PhotoBoxProps {
   changePhoto?: (e: any) => void;
@@ -17,15 +20,45 @@ interface PhotoBoxProps {
 const Container = styled.div`
   align-items: center;
   display: flex;
-  max-height: 400px;
+  flex: 1;
   justify-content: space-between;
+  max-height: 400px;
   opacity: 0;
   position: relative;
-  flex: 1;
   width: 100%;
 `;
 
-const ButtonWrap = styled.div`
+const PhotoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: 0 0.8rem;
+  width: 100%;
+`;
+
+const PhotoWrap = styled.div<any>`
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  background-image: url(${one});
+  background-image: ${(props) => `url(${props.photo})`};
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  transition: 300ms;
+  width: 100%;
+`;
+
+const PhotoDesc = styled.div`
+  align-items: center;
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 100;
+  justify-content: center;
+  margin-top: 1rem;
+`;
+
+const ButtonWrap = styled.div<any>`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -34,33 +67,19 @@ const ButtonWrap = styled.div`
   padding: 0;
 `;
 
-const TurnButton = styled.button`
+const TurnButton = styled.button<any>`
   border: 0;
+  background-color: rgba(0, 0, 0, 0);
   height: 100%;
   min-height: 100%;
   min-width: 100%;
   padding: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0);
-`;
-
-const PhotoWrap = styled.div<any>`
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-  height: 400px;
-  margin: 0 0.8rem;
-  width: 100%;
-  background-image: url(${one});
-  background-image: ${(props) => `url(${props.photo})`};
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: 500ms;
 `;
 
 function PhotoBox({ changePhoto }: PhotoBoxProps) {
   const [photoNumber, setPhotoNumber] = useState(0);
-  const photos = [one, two, three, four];
+  const photos = [one, two, three, four, five, six, seven];
   const onClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget.className.includes('left') && photoNumber > 0) {
       setPhotoNumber((prev) => prev - 1);
@@ -90,7 +109,10 @@ function PhotoBox({ changePhoto }: PhotoBoxProps) {
           <BsChevronCompactLeft size={40} color={'white'} />
         </TurnButton>
       </ButtonWrap>
-      <PhotoWrap photo={photos[photoNumber]}></PhotoWrap>
+      <PhotoContainer>
+        <PhotoWrap photo={photos[photoNumber]}></PhotoWrap>
+        <PhotoDesc>photo by Ina Jang</PhotoDesc>
+      </PhotoContainer>
       <ButtonWrap className="right" onClick={onClick}>
         <TurnButton value="right" onClick={changePhoto}>
           <BsChevronCompactRight size={40} color={'white'} />
