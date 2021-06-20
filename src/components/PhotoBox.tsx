@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react';
+import React, { useState, useEffect, MouseEvent } from 'react';
 import styled from 'styled-components';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
@@ -8,7 +8,6 @@ import one from '../static/image/one.png';
 import two from '../static/image/two.png';
 import three from '../static/image/three.png';
 import four from '../static/image/four.png';
-import { useEffect } from 'react';
 
 interface PhotoBoxProps {
   changePhoto?: (e: any) => void;
