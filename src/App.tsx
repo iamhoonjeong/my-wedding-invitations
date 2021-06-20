@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Helmet } from 'react-helmet';
 
 import GlobalStyle from './styles/globalStyle';
 import './styles/App.scss';
@@ -39,20 +38,6 @@ function App() {
 
   return (
     <>
-      <Helmet>
-        <link
-          rel="icon"
-          href="%PUBLIC_URL%/favicon.svg"
-          sizes="any"
-          type="image/svg+xml"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="%PUBLIC_URL%/favicon.svg"
-          sizes="180x180"
-          type="image/svg+xml"
-        />
-      </Helmet>
       <GlobalStyle />
       {splash ? (
         <Splash splash onChangeSplash={onChangeSplash} />
