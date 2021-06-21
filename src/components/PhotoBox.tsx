@@ -1,4 +1,4 @@
-import React, { useState, useEffect, MouseEvent } from 'react';
+import React, { useState, useEffect, MouseEvent, useCallback } from 'react';
 import styled from 'styled-components';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 
@@ -13,7 +13,7 @@ import six from '../static/image/six.png';
 import seven from '../static/image/seven.png';
 
 interface PhotoBoxProps {
-  changePhoto?: (e: any) => void;
+  changePhoto?: any;
   photoNumber?: number | undefined;
 }
 
@@ -62,17 +62,17 @@ const ButtonWrap = styled.div<any>`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 200px;
   justify-content: center;
   padding: 0;
+  position: relative;
+  top: -20px;
 `;
 
 const TurnButton = styled.button<any>`
   border: 0;
-  background-color: rgba(0, 0, 0, 0);
-  height: 100%;
-  min-height: 100%;
-  min-width: 100%;
+  background-color: transparent;
+  height: 200px;
   padding: 0;
   width: 100%;
 `;
@@ -80,18 +80,24 @@ const TurnButton = styled.button<any>`
 function PhotoBox({ changePhoto }: PhotoBoxProps) {
   const [photoNumber, setPhotoNumber] = useState(0);
   const photos = [one, two, three, four, five, six, seven];
-  const onClick = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.currentTarget.className.includes('left') && photoNumber > 0) {
-      setPhotoNumber((prev) => prev - 1);
-    } else if (
-      e.currentTarget.className.includes('right') &&
-      photoNumber < photos.length - 1
-    ) {
-      setPhotoNumber((prev) => prev + 1);
-      const img = new Image();
-      img.src = photos[photoNumber + 1];
-    }
-  };
+
+  const onChangePhoto = useCallback(
+    (e: MouseEvent<HTMLButtonElement>): void => {
+      if (e.currentTarget.value === 'left' && photoNumber > 0) {
+        changePhoto(e);
+        setPhotoNumber((prev) => prev - 1);
+      } else if (
+        e.currentTarget.value === 'right' &&
+        photoNumber < photos.length - 1
+      ) {
+        changePhoto(e);
+        setPhotoNumber((prev) => prev + 1);
+        const img = new Image();
+        img.src = photos[photoNumber + 1];
+      }
+    },
+    [changePhoto],
+  );
 
   useEffect(() => {
     if (photoNumber < photos.length - 1) {
@@ -104,8 +110,8 @@ function PhotoBox({ changePhoto }: PhotoBoxProps) {
 
   return (
     <Container {...animatedItem}>
-      <ButtonWrap className="left" onClick={onClick}>
-        <TurnButton value="left" onClick={changePhoto}>
+      <ButtonWrap>
+        <TurnButton value="left" onClick={onChangePhoto}>
           <BsChevronCompactLeft size={40} color={'white'} />
         </TurnButton>
       </ButtonWrap>
@@ -113,8 +119,8 @@ function PhotoBox({ changePhoto }: PhotoBoxProps) {
         <PhotoWrap photo={photos[photoNumber]}></PhotoWrap>
         <PhotoDesc>photo by Ina Jang</PhotoDesc>
       </PhotoContainer>
-      <ButtonWrap className="right" onClick={onClick}>
-        <TurnButton value="right" onClick={changePhoto}>
+      <ButtonWrap>
+        <TurnButton value="right" onClick={onChangePhoto}>
           <BsChevronCompactRight size={40} color={'white'} />
         </TurnButton>
       </ButtonWrap>

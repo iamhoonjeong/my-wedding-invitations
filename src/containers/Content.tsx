@@ -5,6 +5,7 @@ import SubTitle from '../components/SubTitle';
 import SubText from '../components/SubText';
 import LinkButton from '../components/LinkButton';
 import PhotoBox from '../components/PhotoBox';
+import AnimationBox from '../components/AnimationBox';
 
 interface ContentProps {
   link?: string;
@@ -16,6 +17,7 @@ interface ContentProps {
   place?: boolean;
   please?: boolean;
   photoNumber?: number | undefined;
+  animation?: boolean;
 }
 
 const Container = styled.div`
@@ -36,6 +38,7 @@ function Content({
   photo,
   changePhoto,
   photoNumber,
+  animation,
 }: ContentProps) {
   return (
     <Container>
@@ -47,6 +50,7 @@ function Content({
         <PhotoBox changePhoto={changePhoto} photoNumber={photoNumber} />
       )}
       {link && <LinkButton link={link} color={color} />}
+      {animation && <AnimationBox></AnimationBox>}
     </Container>
   );
 }

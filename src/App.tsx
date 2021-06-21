@@ -15,6 +15,7 @@ const Wrap: any = styled.div`
   transition: 1s;
   font-family: 'Montserrat';
   font-weight: bold;
+  overflow: hidden;
 `;
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
   };
 
   const [photoNumber, setPhotoNumber] = useState(0);
-  const changePhoto = (e: any) => {
+  const changePhoto = (e: any): any => {
     if (e.currentTarget.value === 'left' && photoNumber > 0)
       setPhotoNumber(photoNumber - 1);
     else if (
@@ -43,7 +44,7 @@ function App() {
         <Splash splash onChangeSplash={onChangeSplash} />
       ) : (
         <Wrap backgroundColor={COLOR[photoNumber]}>
-          <Content text="we're getting married!" getting />
+          <Content text="we're getting married!" getting animation />
           <Content
             text="place"
             link="http://naver.me/5zJozzqz"
