@@ -4,13 +4,13 @@ import styled from 'styled-components';
 import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 
 const Box = styled.div`
-  margin-top: 2.2rem;
+  margin-top: 2rem;
   width: 100%;
   height: 200px;
   opacity: 0;
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 `;
 
@@ -45,6 +45,7 @@ function AnimationBox() {
 
   return (
     <Box {...animatedItem}>
+      {/* <div style={{ fontSize: '1.2rem' }}>❤️</div> */}
       <Oval></Oval>
       <Oval></Oval>
       <Oval></Oval>

@@ -25,7 +25,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   font-family: 'Montserrat' !important;
-  margin-bottom: 12rem;
+  margin-bottom: 10rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 function Content({

@@ -11,7 +11,7 @@ const Wrap: any = styled.div`
   background-color: ${(props: any) => props.backgroundColor};
   display: flex;
   flex-direction: column;
-  padding: 2.2rem 1rem;
+  padding: 3.2rem 1rem 5rem 1rem;
   transition: 1s;
   font-family: 'Montserrat';
   font-weight: bold;
@@ -52,7 +52,7 @@ function App() {
             color={COLOR[photoNumber]}
           />
           <Content
-            text="wedding photo"
+            text="photograph"
             photo
             changePhoto={changePhoto}
             photoNumber={photoNumber}

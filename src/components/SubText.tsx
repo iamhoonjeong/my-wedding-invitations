@@ -5,16 +5,22 @@ import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 
 import {
   semiAndI,
-  semiAndIEng,
   startIntroduce,
-  startIntroduceEng,
+  gettingMarried,
+  semiParents,
+  hoonParents,
 } from '../text/information';
-import { placeName, placeInfo, placeExplain } from '../text/place';
 import {
+  //
+  placeName,
+  placeInfo,
+  placeExplain,
+  parking,
+} from '../text/place';
+import {
+  //
   pleaseDont,
-  pleaseDontEng,
   pleaseEnjoy,
-  pleaseEnjoyEng,
 } from '../text/please';
 
 interface SubTextProps {
@@ -48,16 +54,18 @@ function SubText({ getting, place, please }: SubTextProps) {
     <Container {...animatedItem}>
       {getting && (
         <>
+          <Text>{semiParents}</Text>
+          <Text margin>{hoonParents}</Text>
           <Text>{semiAndI}</Text>
-          <Text margin>{semiAndIEng}</Text>
           <Text>{startIntroduce}</Text>
-          <Text margin>{startIntroduceEng}</Text>
+          <Text margin>{gettingMarried}</Text>
         </>
       )}
       {place && (
         <>
           <Text>{placeName}</Text>
           <Text margin>{placeInfo}</Text>
+          <Text margin>{parking}</Text>
           <Text margin width={'80%'}>
             {placeExplain}
           </Text>
@@ -66,9 +74,8 @@ function SubText({ getting, place, please }: SubTextProps) {
       {please && (
         <>
           <Text>{pleaseDont}</Text>
-          <Text margin>{pleaseDontEng}</Text>
-          <Text>{pleaseEnjoy}</Text>
-          <Text margin>{pleaseEnjoyEng}</Text>
+          <Text margin>{pleaseEnjoy}</Text>
+          <Text>semi & hoon 💕</Text>
         </>
       )}
     </Container>
