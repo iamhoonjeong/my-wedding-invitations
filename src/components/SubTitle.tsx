@@ -17,7 +17,7 @@ const Text = styled.h2`
   opacity: 0;
   position: relative;
   text-align: center;
-  width: 100%;
+  width: 60%;
 `;
 
 function SubTitle({ text }: SubTitleProps) {

@@ -15,14 +15,16 @@ const Container = styled.div`
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   display: flex;
   font-family: 'Montserrat';
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
   width: 100%;
+  max-width: 500px;
   &.transition {
     pointer-events: none;
   }
