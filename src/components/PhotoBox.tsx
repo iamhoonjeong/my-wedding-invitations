@@ -100,11 +100,19 @@ function PhotoBox({ changePhoto }: PhotoBoxProps) {
   );
 
   useEffect(() => {
-    if (photoNumber < photos.length - 1) {
-      const img = new Image();
-      img.src = photos[photoNumber + 1];
+    interface ImagesProps {
+      src: string;
     }
-  }, [photoNumber]);
+    let images: ImagesProps[] = [];
+    function preload(imgages: string[]): void {
+      for (let i = 0; i < imgages.length; i++) {
+        images[i] = new Image();
+        images[i].src = imgages[i];
+      }
+    }
+
+    preload([one, two, three, four, five, six, seven]);
+  }, []);
 
   const animatedItem: any = useScrollFadeIn();
 
