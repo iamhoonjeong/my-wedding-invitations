@@ -33,7 +33,7 @@ const PhotoContainer = styled.div`
   flex-direction: column;
   min-height: 373px;
   height: 440px;
-  margin: 0 0.8rem;
+  margin: 0 0.6rem;
   width: 100%;
 `;
 
@@ -80,7 +80,7 @@ const TurnButton = styled.button<any>`
 
 function PhotoBox({ changePhoto }: PhotoBoxProps) {
   const [photoNumber, setPhotoNumber] = useState(0);
-  const photos = [one, two, three, four, five, six, seven];
+  const photos = [two, three, four, five, six, seven, one];
 
   const onChangePhoto = useCallback(
     (e: MouseEvent<HTMLButtonElement>): void => {
