@@ -22,7 +22,7 @@ const Container = styled.div`
   display: flex;
   flex: 1;
   justify-content: space-between;
-  max-height: 440px;
+  max-height: 460px;
   opacity: 0;
   position: relative;
   width: 100%;
@@ -32,7 +32,7 @@ const PhotoContainer = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 373px;
-  height: 440px;
+  height: 460px;
   margin: 0 0.6rem;
   width: 100%;
 `;
@@ -42,7 +42,7 @@ const PhotoWrap = styled.div<any>`
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   background-image: url(${one});
   background-image: ${(props) => `url(${props.photo})`};
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
