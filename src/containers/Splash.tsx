@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
 
-import photo from '../static/image/one.png';
+import photo from '../static/image/splash.png';
 
 interface SplashProps {
   onChangeSplash: () => void;
@@ -83,7 +83,7 @@ const TransitionBox = styled.div`
   width: 100%;
   z-index: 100;
   &.transition {
-    animation: transition 0.8s;
+    animation: transition 1.6s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
     touch-action: none;
@@ -92,7 +92,12 @@ const TransitionBox = styled.div`
     from {
       height: 0;
     }
+    50% {
+      background-color: #6b5c38;
+      height: 100%;
+    }
     to {
+      background-color: #767050;
       height: 100%;
     }
   }

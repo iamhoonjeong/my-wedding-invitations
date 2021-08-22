@@ -54,8 +54,8 @@ function SubText({ getting, place, please }: SubTextProps) {
     <Container {...animatedItem}>
       {getting && (
         <>
-          <Text>{semiParents}</Text>
-          <Text margin>{hoonParents}</Text>
+          <Text>{hoonParents}</Text>
+          <Text margin>{semiParents}</Text>
           <Text>{semiAndI}</Text>
           <Text>{startIntroduce}</Text>
           <Text margin>{gettingMarried}</Text>

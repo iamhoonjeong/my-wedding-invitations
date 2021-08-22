@@ -22,7 +22,7 @@ const Container = styled.div`
   display: flex;
   flex: 1;
   justify-content: space-between;
-  max-height: 400px;
+  max-height: 440px;
   opacity: 0;
   position: relative;
   width: 100%;
@@ -31,7 +31,8 @@ const Container = styled.div`
 const PhotoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 400px;
+  min-height: 373px;
+  height: 440px;
   margin: 0 0.8rem;
   width: 100%;
 `;
