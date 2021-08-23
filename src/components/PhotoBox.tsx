@@ -42,7 +42,7 @@ const PhotoWrap = styled.div<any>`
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   background-image: url(${one});
   background-image: ${(props) => `url(${props.photo})`};
-  background-position: center center;
+  background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import GlobalStyle from './styles/globalStyle';
@@ -6,6 +6,13 @@ import './styles/App.scss';
 
 import Splash from './containers/Splash';
 import Content from './containers/Content';
+
+const NotiAvailMo = styled.div`
+  font-weight: bold;
+  font-size: 2.6rem;
+  width: 100vw;
+  height: 100vh;
+`;
 
 const WrapWrap: any = styled.div`
   background-color: ${(props: any) => props.backgroundColor};
@@ -31,12 +38,34 @@ const Wrap: any = styled.div`
 `;
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
   const [splash, setSplash] = useState(true);
   const onChangeSplash = () => {
     setTimeout(() => {
       setSplash((prev) => !prev);
     }, 1600);
   };
+
+  // 모바일 체크 함수
+  const checkMobile = () => {
+    const user = window.navigator.userAgent;
+    let isMobile = false;
+
+    if (
+      user.indexOf('iPhone') > -1 ||
+      user.indexOf('Android') > -1 ||
+      user.indexOf('iPad') > -1 ||
+      user.indexOf('iPod') > -1
+    ) {
+      isMobile = true;
+    }
+
+    return isMobile;
+  };
+
+  useEffect(() => {
+    setIsMobile(checkMobile());
+  }, []);
 
   const [photoNumber, setPhotoNumber] = useState(0);
   const changePhoto = (e: any): any => {
@@ -48,6 +77,13 @@ function App() {
     )
       setPhotoNumber(photoNumber + 1);
   };
+
+  if (!isMobile)
+    return (
+      <>
+        <NotiAvailMo>모바일 기기만 지원합니다.</NotiAvailMo>
+      </>
+    );
 
   return (
     <>
