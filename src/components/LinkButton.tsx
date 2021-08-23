@@ -6,6 +6,7 @@ import { useScrollFadeIn } from '../hooks/useScrollFadeIn';
 interface LinkButtonProps {
   link?: string;
   color: string | undefined;
+  text?: string;
 }
 
 const Button = styled.a<any>`
@@ -23,12 +24,12 @@ const Button = styled.a<any>`
   padding: 0 1rem;
 `;
 
-function LinkButton({ link, color }: LinkButtonProps) {
+function LinkButton({ link, color, text }: LinkButtonProps) {
   const animatedItem: any = useScrollFadeIn();
 
   return (
     <Button href={link} target="_blank" {...animatedItem}>
-      place information
+      {text}
     </Button>
   );
 }

@@ -22,11 +22,13 @@ import {
   pleaseDont,
   pleaseEnjoy,
 } from '../text/please';
+import { videoDesc, videoDesc2, videoDesc3 } from '../text/liveVideo';
 
 interface SubTextProps {
   getting?: boolean;
   place?: boolean;
   please?: boolean;
+  liveVideo?: boolean;
 }
 
 const Container = styled.div`
@@ -48,7 +50,7 @@ const Text = styled.div<any>`
   word-wrap: break-word;
 `;
 
-function SubText({ getting, place, please }: SubTextProps) {
+function SubText({ getting, place, please, liveVideo }: SubTextProps) {
   const animatedItem: any = useScrollFadeIn();
   return (
     <Container {...animatedItem}>
@@ -76,6 +78,27 @@ function SubText({ getting, place, please }: SubTextProps) {
           <Text>{pleaseDont}</Text>
           <Text margin>{pleaseEnjoy}</Text>
           <Text>semi & hoon 💕</Text>
+        </>
+      )}
+      {liveVideo && (
+        <>
+          <Text margin>
+            {videoDesc.split('\n').map((text) => (
+              <>
+                {text}
+                <br />
+              </>
+            ))}
+          </Text>
+          <Text margin>
+            {videoDesc2.split('\n').map((text) => (
+              <>
+                {text}
+                <br />
+              </>
+            ))}
+          </Text>
+          <Text margin>{videoDesc3}</Text>
         </>
       )}
     </Container>

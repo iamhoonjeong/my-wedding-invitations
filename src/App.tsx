@@ -38,7 +38,7 @@ const Wrap: any = styled.div`
 `;
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const [splash, setSplash] = useState(true);
   const onChangeSplash = () => {
     setTimeout(() => {
@@ -97,6 +97,7 @@ function App() {
             <Content
               text="place"
               link="http://naver.me/5zJozzqz"
+              linkText="place information"
               place
               color={COLOR[photoNumber]}
             />
@@ -105,6 +106,12 @@ function App() {
               photo
               changePhoto={changePhoto}
               photoNumber={photoNumber}
+            />
+            <Content
+              text="live video"
+              liveVideo
+              link="https://youtu.be/BdkSkI61aGo"
+              linkText="live video link"
             />
             <Content text="please" please />
           </Wrap>

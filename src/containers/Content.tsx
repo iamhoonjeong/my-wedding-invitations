@@ -18,6 +18,8 @@ interface ContentProps {
   please?: boolean;
   photoNumber?: number | undefined;
   animation?: boolean;
+  liveVideo?: boolean;
+  linkText?: string;
 }
 
 const Container = styled.div`
@@ -42,6 +44,8 @@ function Content({
   changePhoto,
   photoNumber,
   animation,
+  liveVideo,
+  linkText,
 }: ContentProps) {
   return (
     <Container>
@@ -52,7 +56,8 @@ function Content({
       {photo && (
         <PhotoBox changePhoto={changePhoto} photoNumber={photoNumber} />
       )}
-      {link && <LinkButton link={link} color={color} />}
+      {liveVideo && <SubText liveVideo />}
+      {link && <LinkButton link={link} color={color} text={linkText} />}
       {animation && <AnimationBox></AnimationBox>}
     </Container>
   );
