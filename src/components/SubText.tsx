@@ -68,8 +68,13 @@ function SubText({ getting, place, please, liveVideo }: SubTextProps) {
           <Text>{placeName}</Text>
           <Text margin>{placeInfo}</Text>
           <Text margin>{parking}</Text>
-          <Text margin width={'80%'}>
-            {placeExplain}
+          <Text margin>
+            {placeExplain.split('\n').map((text) => (
+              <>
+                {text}
+                <br />
+              </>
+            ))}
           </Text>
         </>
       )}
