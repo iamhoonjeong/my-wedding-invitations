@@ -110,7 +110,7 @@ function App() {
             <Content
               text="live video"
               liveVideo
-              link="/"
+              link="https://www.youtube.com/watch?v=XqkG988K0Lo"
               linkText="live video link"
             />
             <Content text="please" please />
