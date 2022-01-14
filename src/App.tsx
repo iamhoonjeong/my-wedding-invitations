@@ -7,6 +7,7 @@ import './styles/App.scss';
 import Splash from './containers/Splash';
 import Content from './containers/Content';
 
+// a
 const NotiAvailMo = styled.div`
   font-weight: bold;
   font-size: 2.6rem;
